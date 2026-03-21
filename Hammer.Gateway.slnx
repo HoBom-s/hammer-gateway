@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Hammer.Gateway/Hammer.Gateway.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Hammer.Gateway.Tests/Hammer.Gateway.Tests.csproj" />
+  </Folder>
+</Solution>
