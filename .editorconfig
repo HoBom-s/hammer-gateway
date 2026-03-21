@@ -213,6 +213,9 @@ dotnet_naming_rule.local_functions_should_be_pascal_case.style = pascal_case
 dotnet_naming_rule.local_functions_should_be_pascal_case.severity = error
 dotnet_naming_symbols.local_functions.applicable_kinds = local_function
 
+# CA1812: Avoid uninstantiated internal classes (false positive for DI/middleware)
+dotnet_diagnostic.CA1812.severity = none
+
 #### Analyzer severity overrides ####
 # CA1062: Validate arguments of public methods
 dotnet_diagnostic.CA1062.severity = warning
@@ -236,8 +239,8 @@ dotnet_diagnostic.SA1101.severity = none
 dotnet_diagnostic.SA1200.severity = none
 # SA1633: File should have header
 dotnet_diagnostic.SA1633.severity = none
-# SA1600: Elements should be documented
-dotnet_diagnostic.SA1600.severity = warning
+# SA1600: Elements should be documented (suggestion for internal app code)
+dotnet_diagnostic.SA1600.severity = suggestion
 # SA1602: Enumeration items should be documented
 dotnet_diagnostic.SA1602.severity = suggestion
 # SA1309: Field names should not begin with underscore (conflicts with _field naming)
