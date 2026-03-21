@@ -23,7 +23,7 @@ Hammer 경매 플랫폼의 API Gateway.
 | [hammer-user](https://github.com/HoBom-s/hammer-user) | User & Auth |
 | [hammer-auction](https://github.com/HoBom-s/hammer-auction) | Auction API |
 | [hammer-collector](https://github.com/HoBom-s/hammer-collector) | Data Collector |
-| [hammer-logging](https://github.com/HoBom-s/hammer-logging) | Logging |
+| [hammer-support](https://github.com/HoBom-s/hammer-support) | Logging, FCM, Support |
 
 ## Getting Started
 
