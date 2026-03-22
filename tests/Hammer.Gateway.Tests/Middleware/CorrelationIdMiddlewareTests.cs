@@ -8,7 +8,7 @@ namespace Hammer.Gateway.Tests.Middleware;
 public sealed class CorrelationIdMiddlewareTests
 {
     [Fact]
-    public async Task InvokeAsync_SetsTraceId_FromTraceIdentifier_WhenNoActivity()
+    public async Task InvokeAsync_SetsTraceId_FromTraceIdentifier_WhenNoActivityAsync()
     {
         var context = new DefaultHttpContext();
 
@@ -22,7 +22,7 @@ public sealed class CorrelationIdMiddlewareTests
     }
 
     [Fact]
-    public async Task InvokeAsync_SetsTraceId_FromActivity_WhenPresent()
+    public async Task InvokeAsync_SetsTraceId_FromActivity_WhenPresentAsync()
     {
         using var activity = new Activity("test");
         activity.Start();
@@ -40,7 +40,7 @@ public sealed class CorrelationIdMiddlewareTests
     }
 
     [Fact]
-    public async Task InvokeAsync_CallsNextMiddleware()
+    public async Task InvokeAsync_CallsNextMiddlewareAsync()
     {
         var context = new DefaultHttpContext();
         var nextCalled = false;

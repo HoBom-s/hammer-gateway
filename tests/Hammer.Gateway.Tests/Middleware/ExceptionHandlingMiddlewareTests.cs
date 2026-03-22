@@ -22,7 +22,7 @@ public sealed class ExceptionHandlingMiddlewareTests
     private readonly IKafkaProducer _kafkaProducer = Substitute.For<IKafkaProducer>();
 
     [Fact]
-    public async Task InvokeAsync_Returns500ProblemDetails_OnException()
+    public async Task InvokeAsync_Returns500ProblemDetails_OnExceptionAsync()
     {
         var context = new DefaultHttpContext();
         context.Items["TraceId"] = "trace-err";
@@ -51,7 +51,7 @@ public sealed class ExceptionHandlingMiddlewareTests
     }
 
     [Fact]
-    public async Task InvokeAsync_PublishesServiceErrorEvent_OnException()
+    public async Task InvokeAsync_PublishesServiceErrorEvent_OnExceptionAsync()
     {
         var context = new DefaultHttpContext();
         context.Items["TraceId"] = "trace-err-2";
@@ -83,7 +83,7 @@ public sealed class ExceptionHandlingMiddlewareTests
     }
 
     [Fact]
-    public async Task InvokeAsync_PassesThrough_WhenNoException()
+    public async Task InvokeAsync_PassesThrough_WhenNoExceptionAsync()
     {
         var context = new DefaultHttpContext();
         context.Request.Method = "GET";
@@ -107,7 +107,7 @@ public sealed class ExceptionHandlingMiddlewareTests
     }
 
     [Fact]
-    public async Task InvokeAsync_FallsBackToTraceIdentifier_WhenTraceIdNotInItems()
+    public async Task InvokeAsync_FallsBackToTraceIdentifier_WhenTraceIdNotInItemsAsync()
     {
         var context = new DefaultHttpContext();
         context.Request.Method = "GET";

@@ -16,7 +16,7 @@ public sealed class RequestLoggingMiddlewareTests
     private readonly ILogger<RequestLoggingMiddleware> _logger = Substitute.For<ILogger<RequestLoggingMiddleware>>();
 
     [Fact]
-    public async Task InvokeAsync_PublishesEvent_WithAllFieldsPopulated()
+    public async Task InvokeAsync_PublishesEvent_WithAllFieldsPopulatedAsync()
     {
         var context = new DefaultHttpContext();
         context.Items["TraceId"] = "trace-abc";
@@ -62,7 +62,7 @@ public sealed class RequestLoggingMiddlewareTests
     }
 
     [Fact]
-    public async Task InvokeAsync_SetsNullForOptionalFields_WhenAbsent()
+    public async Task InvokeAsync_SetsNullForOptionalFields_WhenAbsentAsync()
     {
         var context = new DefaultHttpContext();
         context.Items["TraceId"] = "trace-def";
@@ -92,7 +92,7 @@ public sealed class RequestLoggingMiddlewareTests
     }
 
     [Fact]
-    public async Task InvokeAsync_FallsBackToTraceIdentifier_WhenTraceIdNotInItems()
+    public async Task InvokeAsync_FallsBackToTraceIdentifier_WhenTraceIdNotInItemsAsync()
     {
         var context = new DefaultHttpContext();
         context.Request.Method = "GET";
@@ -117,7 +117,7 @@ public sealed class RequestLoggingMiddlewareTests
     }
 
     [Fact]
-    public async Task InvokeAsync_Records429_WithClientIp()
+    public async Task InvokeAsync_Records429_WithClientIpAsync()
     {
         var context = new DefaultHttpContext();
         context.Items["TraceId"] = "trace-429";

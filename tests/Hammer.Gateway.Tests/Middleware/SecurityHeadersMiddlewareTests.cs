@@ -7,7 +7,7 @@ namespace Hammer.Gateway.Tests.Middleware;
 public sealed class SecurityHeadersMiddlewareTests
 {
     [Fact]
-    public async Task InvokeAsync_SetsAllSecurityHeaders()
+    public async Task InvokeAsync_SetsAllSecurityHeadersAsync()
     {
         var context = new DefaultHttpContext();
 
@@ -24,7 +24,7 @@ public sealed class SecurityHeadersMiddlewareTests
     }
 
     [Fact]
-    public async Task InvokeAsync_CallsNextMiddleware()
+    public async Task InvokeAsync_CallsNextMiddlewareAsync()
     {
         var context = new DefaultHttpContext();
         var nextCalled = false;
