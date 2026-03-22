@@ -54,4 +54,7 @@ Thumbs.db
 ## Environment
 .env
 .env.*
+!.env.example
+!.env.dev
+!.env.live
 appsettings.*.local.json
