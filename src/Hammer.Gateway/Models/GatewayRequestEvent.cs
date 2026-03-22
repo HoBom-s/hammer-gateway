@@ -5,6 +5,12 @@ internal sealed record GatewayRequestEvent(
     string? UserId,
     string Method,
     string Path,
+    string? QueryString,
+    string? ClientIp,
+    string? UserAgent,
+    long? RequestSize,
+    long? ResponseSize,
+    string? RouteCluster,
     int StatusCode,
     long DurationMs,
     DateTimeOffset Timestamp);
