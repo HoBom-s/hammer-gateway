@@ -1,5 +1,6 @@
 using System.Text;
 using System.Threading.RateLimiting;
+using Hammer.Gateway.Kafka;
 using Hammer.Gateway.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -96,6 +97,9 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Kafka
+builder.Services.AddSingleton<IKafkaProducer, KafkaProducer>();
+
 // Health checks
 builder.Services.AddHealthChecks()
     .AddRedis(redisConnectionString, name: "redis");
@@ -105,6 +109,7 @@ WebApplication app = builder.Build();
 // Middleware pipeline (order matters)
 app.UseMiddleware<CorrelationIdMiddleware>();
 app.UseMiddleware<SecurityHeadersMiddleware>();
+app.UseMiddleware<RequestLoggingMiddleware>();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseSerilogRequestLogging();
 app.UseCors();
